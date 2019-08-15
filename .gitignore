@@ -1,0 +1,18 @@
+# Logs
+logs
+*.log
+npm-debug.log*
+coverage
+
+# Dependency directories
+node_modules/
+
+# Optional npm cache directory
+.npm
+.eslintcache
+
+# Prod Bundle
+build
+
+# misc
+.DS_Store
