@@ -14,6 +14,7 @@
           "every": [ "nesting", "id" ]
       },
       "allowChildren": true
-    }]
+    }],
+    "linebreak-style": 0
   }
 }
