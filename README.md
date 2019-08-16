@@ -1,3 +1,5 @@
 # MovieOntology
 
-김진혁(Jinhyeok Kim)
+김진혁
+
+정균휘
