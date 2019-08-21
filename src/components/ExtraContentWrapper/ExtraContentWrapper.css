@@ -1,0 +1,6 @@
+.ExtraContentWrapper {
+  border-style: dashed;
+  padding: 1.2rem;
+  display: inline-block;
+  width: 45%;
+}
