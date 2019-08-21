@@ -1,0 +1,9 @@
+.ExtraContentsWrapper{
+
+}
+
+@media (max-width: 768px) {
+    .SearchResultWrapper{
+        width: 90%;
+    }
+}

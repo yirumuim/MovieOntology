@@ -1,7 +1,7 @@
 import React from 'react';
 
 import { Header } from './components/index';
-import { ApplicationContainer } from './components/containers';
+import { ApplicationContainer } from './containers/index';
 
 function App() {
   return (
@@ -11,5 +11,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

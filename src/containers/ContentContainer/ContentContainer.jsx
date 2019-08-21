@@ -1,5 +1,5 @@
 import React from 'react';
-import { ContentWrapper, MovieSearchResult } from '../../index';
+import { ContentWrapper, MovieSearchResult } from '../../components/index';
 
 const ContentContainer = () => (
   <ContentWrapper>
