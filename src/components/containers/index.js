@@ -1,9 +1,10 @@
+/* eslint-disable import/no-cycle */
 import ApplicationContainer from './ApplicationContainer/ApplicationContainer';
-import ExtraContentContainer from './ExtraContentContainer/ExtraContentContainer';
+import ExtraContentsContainer from './ExtraContentsContainer/ExtraContentsContainer';
 import ContentContainer from './ContentContainer/ContentContainer';
 
 export {
   ApplicationContainer,
   ContentContainer,
-  ExtraContentContainer,
+  ExtraContentsContainer,
 };
