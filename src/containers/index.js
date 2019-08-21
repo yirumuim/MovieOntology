@@ -1,5 +1,10 @@
-import ExtraContentsContainer from './ExtraContentsContainer/ExtraContentsContainer.js';
+/* eslint-disable import/no-cycle */
+import ApplicationContainer from './ApplicationContainer/ApplicationContainer';
+import ExtraContentsContainer from './ExtraContentsContainer/ExtraContentsContainer';
+import ContentContainer from './ContentContainer/ContentContainer';
 
 export {
-    ExtraContentsContainer
+  ApplicationContainer,
+  ContentContainer,
+  ExtraContentsContainer,
 };
