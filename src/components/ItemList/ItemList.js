@@ -1,4 +1,5 @@
 import React, { createRef } from 'react';
+// eslint-disable-next-line import/no-cycle
 import { Item } from '../index';
 import './ItemList.css';
 
