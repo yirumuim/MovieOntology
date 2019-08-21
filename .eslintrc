@@ -18,6 +18,7 @@
     "linebreak-style": 0,
     "react/jsx-filename-extension": [1, { "extensions": [".js", ".jsx"] }],
     "react/prop-types": 0,
+<<<<<<< HEAD
     "import/no-extraneous-dependencies": [
       "error", {
          "devDependencies": false, 
@@ -26,5 +27,8 @@
          "packageDir": "./"
       }
   ]
+=======
+    "react/prefer-stateless-function": "off",
+>>>>>>> 953e0193ae8c840ce50ba67dcff5e5a49ed0fb23
   }
 }
