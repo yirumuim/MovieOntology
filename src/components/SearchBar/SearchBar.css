@@ -1,11 +1,11 @@
-#query{
+#search_query{
     font-size: 24px;
     width: 300px;
     padding: 12px;
     border-radius:10px;
 }
 
-#s_btn{
+#search_button{
     background-color: #f8585b;
     width:100px;
     color:#fff;

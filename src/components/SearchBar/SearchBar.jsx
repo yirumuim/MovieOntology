@@ -5,8 +5,8 @@ function Searchbar() {
   return (
     <div>
       <div className="searchbar">
-        <input id="query" name="query" type="text" />
-        <button id="s_btn" type="submit" title="검색">검색</button>
+        <input id="search_query" name="query" type="text" />
+        <button id="search_button" type="submit" title="검색">검색</button>
       </div>
     </div>
   );
