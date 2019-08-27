@@ -1,10 +1,16 @@
 import React from 'react';
-import { ContentWrapper, MovieSearchResult } from '../../components/index';
+import {
+  ContentWrapper,
+  MovieSearchResult,
+  SearchBar,
+  Trailer,
+} from '../../components/index';
 
 const ContentContainer = () => (
   <ContentWrapper>
-    Hello, ContentWrapper
+    <SearchBar />
     <MovieSearchResult />
+    <Trailer />
   </ContentWrapper>
 );
 

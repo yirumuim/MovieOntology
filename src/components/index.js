@@ -7,6 +7,8 @@ import Scroll from './Scroll/Scroll';
 // eslint-disable-next-line import/no-cycle
 import ItemList from './ItemList/ItemList';
 import Item from './Item/Item';
+import SearchBar from './SearchBar/SearchBar';
+import Trailer from './Trailer/Trailer';
 
 export {
   Header,
@@ -17,4 +19,6 @@ export {
   Scroll,
   ItemList,
   Item,
+  SearchBar,
+  Trailer,
 };
