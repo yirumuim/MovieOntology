@@ -1,6 +1,4 @@
 import Header from './Header/Header';
-import ApplicationWrapper from './ApplicationWrapper/ApplicationWrapper';
-import ContentWrapper from './ContentWrapper/ContentWrapper';
 import ExtraContentsWrapper from './ExtraContentsWrapper/ExtraContentsWrapper';
 import MovieSearchResult from './MovieSearchResult/MovieSearchResult';
 import Scroll from './Scroll/Scroll';
@@ -13,8 +11,6 @@ import ShortInformation from './ShortInformation/ShortInformation';
 
 export {
   Header,
-  ApplicationWrapper,
-  ContentWrapper,
   ExtraContentsWrapper,
   MovieSearchResult,
   Scroll,

@@ -1,14 +1,18 @@
 import React from 'react';
-import './SearchBar.css';
+import SearchBar from 'material-ui-search-bar';
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 
 function Searchbar() {
   return (
-    <div>
-      <div className="searchbar">
-        <input id="search_query" name="query" type="text" />
-        <button id="search_button" type="submit" title="검색">검색</button>
-      </div>
-    </div>
+    <MuiThemeProvider>
+      <SearchBar
+        onChange={() => console.log('onChange')}
+        onRequestSearch={() => console.log('onRequestSearch')}
+        style={{
+          margin: '0 auto',
+        }}
+      />
+    </MuiThemeProvider>
   );
 }
 

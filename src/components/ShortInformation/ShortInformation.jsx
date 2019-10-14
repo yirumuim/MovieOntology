@@ -1,29 +1,63 @@
 import React from 'react';
-import Img from 'react-image';
-import './ShortInformation.css';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
-function ShortInformation() {
+const useStyles = makeStyles((theme) => ({
+  card: {
+    display: 'flex',
+    textAlign: 'vertical center',
+  },
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  content: {
+    padding: theme.spacing(5, 2),
+    height: 200,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
+  },
+  cover: {
+    paddingTop: '56.25%',
+    width: '20%',
+    display: 'flex',
+  },
+}));
+
+const ShortInformation = () => {
+  const classes = useStyles();
   return (
     <div>
-      <Img
-        className="actor_image"
-        src="http://www.kobis.or.kr/common/mast/people/2019/07/b9982ae04a9b4558885a1a6ac03d2fe1.jpg"
-      />
-      <Img
-        className="actor_image"
-        src="http://www.kobis.or.kr/common/mast/people/2019/07/9b53a6d4aec043a38365570f0139089c.jpg"
-      />
-      <Img
-        className="actor_image"
-        src="http://www.kobis.or.kr/common/mast/people/2019/07/912db92b701645529d79c97e23b92ea2.jpg"
-      />
-      <div>
-        <p>출연진 : 조정석, 윤아, 고두심</p>
-        <p>개봉일 : 2019.07.31</p>
-        <p>장르 : 액션, 코미디</p>
-      </div>
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.cover}
+          image="http://www.kobis.or.kr/common/mast/people/2019/07/b9982ae04a9b4558885a1a6ac03d2fe1.jpg"
+          title="Live from space album cover"
+        />
+        <CardMedia
+          className={classes.cover}
+          image="http://www.kobis.or.kr/common/mast/people/2019/07/9b53a6d4aec043a38365570f0139089c.jpg"
+          title="Live from space album cover"
+        />
+        <CardMedia
+          className={classes.cover}
+          image="http://www.kobis.or.kr/common/mast/people/2019/07/912db92b701645529d79c97e23b92ea2.jpg"
+          title="Live from space album cover"
+        />
+        <CardContent className={classes.content}>
+          <Typography>
+            <p>출연진 : 조정석, 윤아, 고두심</p>
+            <p>개봉일 : 2019.07.31</p>
+            <p>장르 : 액션, 코미디</p>
+          </Typography>
+        </CardContent>
+      </Card>
     </div>
   );
-}
+};
 
 export default ShortInformation;
