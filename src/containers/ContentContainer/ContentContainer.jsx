@@ -4,6 +4,7 @@ import {
   MovieSearchResult,
   SearchBar,
   Trailer,
+  ShortInformation,
 } from '../../components/index';
 
 const ContentContainer = () => (
@@ -11,6 +12,7 @@ const ContentContainer = () => (
     <SearchBar />
     <MovieSearchResult />
     <Trailer />
+    <ShortInformation />
   </ContentWrapper>
 );
 

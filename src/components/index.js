@@ -9,6 +9,7 @@ import ItemList from './ItemList/ItemList';
 import Item from './Item/Item';
 import SearchBar from './SearchBar/SearchBar';
 import Trailer from './Trailer/Trailer';
+import ShortInformation from './ShortInformation/ShortInformation';
 
 export {
   Header,
@@ -21,4 +22,5 @@ export {
   Item,
   SearchBar,
   Trailer,
+  ShortInformation,
 };
