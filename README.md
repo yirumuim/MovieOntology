@@ -1,5 +1,29 @@
 # MovieOntology
 
-김진혁(Jinhyeok Kim)
-신승혁
-정균휘
+영화검색을 위한 온톨로지 설계
+
+---
+
+### CSS <br>
+Main Reference
+- Grid: https://material-ui.com/components/grid/ 
+- Card: https://material-ui.com/components/cards/#cards
+- Typography: https://material-ui.com/customization/typography/#typography
+
+
+Reference
+- https://heropy.blog/2019/08/17/css-grid/
+- https://ibrahimovic.tistory.com/23
+- https://scrimba.com/g/gR8PTE
+
+---
+
+### Development Environment
+- Language: JavaScript
+
+#### Library
+- React
+- Google's material-ui
+
+---
+Developer By : 김진혁, 신승혁, 정균휘
