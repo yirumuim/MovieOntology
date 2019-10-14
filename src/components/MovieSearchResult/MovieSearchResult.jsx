@@ -3,11 +3,10 @@ import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
-import Typography from '@material-ui/core/Typography';
 
 import MoiveSearchContents from './MovieSearchContents';
 
-const useStyles = makeStyles(() => ({
+const useStyles = makeStyles((theme) => ({
   card: {
     display: 'flex',
     textAlign: 'vertical center',
@@ -17,11 +16,15 @@ const useStyles = makeStyles(() => ({
     flexDirection: 'column',
   },
   content: {
-    flex: '1 0 auto',
+    padding: theme.spacing(5, 2),
+    height: 200,
+    display: 'flex',
+    flexDirection: 'column',
+    justifyContent: 'center',
   },
   cover: {
     paddingTop: '56.25%',
-    width: 151,
+    width: '35%',
     display: 'flex',
   },
 }));
@@ -37,13 +40,11 @@ const MovieSearchResult = () => {
           title="Live from space album cover"
         />
         <CardContent className={classes.content}>
-          <Typography component="h5" variant="h5">
-          조커(Joker, 2019)
-          </Typography>
           <MoiveSearchContents />
         </CardContent>
       </Card>
     </div>
   );
 };
+
 export default MovieSearchResult;

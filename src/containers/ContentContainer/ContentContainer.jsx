@@ -9,14 +9,12 @@ import {
   ShortInformation,
 } from '../../components/index';
 
-const useStyles = makeStyles((theme) => ({
+const useStyles = makeStyles(() => ({
   root: {
     flexGrow: 1,
   },
-  card: {
-    padding: theme.spacing(5),
-    textAlign: 'center',
-    color: theme.palette.text.secondary,
+  item: {
+    display: Grid,
   },
 }));
 
@@ -30,16 +28,16 @@ const ContentContainer = () => {
         container
         spacing={3}
       >
-        <Grid item xm={6}>
+        <Grid item xs={12} xm={2}>
           <SearchBar className="SearchBar" />
         </Grid>
-        <Grid item xm={6}>
+        <Grid item xs={12} xm={4}>
           <MovieSearchResult className="MovieSearchResult" />
         </Grid>
-        <Grid item xm={6}>
+        <Grid item xs={12} xm={3}>
           <Trailer className="Trailer" />
         </Grid>
-        <Grid item xm={6}>
+        <Grid item xs={12} xm={3}>
           <ShortInformation className="ShortInformation" />
         </Grid>
       </Grid>

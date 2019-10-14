@@ -21,7 +21,7 @@ const ApplicationContainer = () => {
 
   return (
     <div className={classes.root}>
-      <Grid container spacing={3}>
+      <Grid container spacing={3} align-items-xs-center>
         <Grid item xs={6}>
           <ContentContainer className="ContentContainer" />
         </Grid>
