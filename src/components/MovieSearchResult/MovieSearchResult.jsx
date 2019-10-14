@@ -1,26 +1,49 @@
 import React from 'react';
-import Img from 'react-image';
+import { makeStyles } from '@material-ui/core/styles';
+import Card from '@material-ui/core/Card';
+import CardContent from '@material-ui/core/CardContent';
+import CardMedia from '@material-ui/core/CardMedia';
+import Typography from '@material-ui/core/Typography';
 
-import MovieSearchResultTemplate from '../MovieSearchResultTemplate/MovieSearchResultTemplate';
+import MoiveSearchContents from './MovieSearchContents';
 
-const MovieSearchResult = () => (
-  <MovieSearchResultTemplate>
-    <Img
-      className="Search-Image"
-      src="http://www.kobis.or.kr/common/mast/movie/2019/09/96dde341cfd74439953ce52a38b6919f.jpg"
-    />
-    <h1>조커</h1>
-    <dl>
-      <dt>평점</dt>
-      <dd>9.24</dd>
-      <dt>감독</dt>
-      <dd>df</dd>
-      <dt>관객수</dt>
-      <dd>dfd</dd>
-      <dt>출연배우</dt>
-      <dd>dffd, dd</dd>
-    </dl>
+const useStyles = makeStyles(() => ({
+  card: {
+    display: 'flex',
+    textAlign: 'vertical center',
+  },
+  details: {
+    display: 'flex',
+    flexDirection: 'column',
+  },
+  content: {
+    flex: '1 0 auto',
+  },
+  cover: {
+    paddingTop: '56.25%',
+    width: 151,
+    display: 'flex',
+  },
+}));
 
-  </MovieSearchResultTemplate>
-);
+const MovieSearchResult = () => {
+  const classes = useStyles();
+  return (
+    <div>
+      <Card className={classes.card}>
+        <CardMedia
+          className={classes.cover}
+          image="http://www.kobis.or.kr/common/mast/movie/2019/09/96dde341cfd74439953ce52a38b6919f.jpg"
+          title="Live from space album cover"
+        />
+        <CardContent className={classes.content}>
+          <Typography component="h5" variant="h5">
+          조커(Joker, 2019)
+          </Typography>
+          <MoiveSearchContents />
+        </CardContent>
+      </Card>
+    </div>
+  );
+};
 export default MovieSearchResult;

@@ -3,9 +3,23 @@
   text-align: center;
   padding: 1.2rem;
   display: flex;
+  flex-flow: row wrap;
+  height: 100%;
+  align-items: center;
+  justify-content: center;
 }
 
 .Search-Image{
-  height: auto;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+
   max-width: 50%;
+}
+
+.MovieSearchContents{
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: auto;
+  align-self: center;
 }
