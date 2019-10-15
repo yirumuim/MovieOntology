@@ -3,10 +3,8 @@
     height: 300px;
 }
 
-.Item_poster {
-    float: left;
-    width: 10%;
-    height: 10%;
+.poster {
+    max-width: 50%;
 }
 
 .Item_content {
