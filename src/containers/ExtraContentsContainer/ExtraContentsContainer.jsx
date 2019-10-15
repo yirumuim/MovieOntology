@@ -1,11 +1,8 @@
 import React from 'react';
-import { ExtraContentsWrapper, ItemList } from '../../components/index';
+import {ExtraContentsList } from '../../components/index';
 
 const ExtraContentsContainer = () => (
-  <ExtraContentsWrapper>
-    Hello, ExtraContentsContainer
-    <ItemList />
-  </ExtraContentsWrapper>
+    <ExtraContentsList />
 );
 
 export default ExtraContentsContainer;
