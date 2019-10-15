@@ -24,7 +24,6 @@ class ExtraContentsList extends Component {
     const { properties } = this.state;
     return (
       <div className="App">        
-      
         {/*<div className="content">
           <ExtraContents property={property} />
         </div>*/}
