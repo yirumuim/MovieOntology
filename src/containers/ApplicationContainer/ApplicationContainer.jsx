@@ -25,7 +25,7 @@ const ApplicationContainer = () => {
         <Grid item xs={7}>
           <ContentContainer className="ContentContainer" />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={5}>
           <ExtraContentsContainer className="ExtraContentsContainer" />
         </Grid>
       </Grid>

@@ -25,22 +25,23 @@ class ExtraContentsList extends Component {
     return (
       <div className="App">        
       
-        <div className="content">
+        {/*<div className="content">
           <ExtraContents property={property} />
-        </div>
+        </div>*/}
         <div className="contentList">
-          <ol className="features">
-            <li className = "contentList_li" onClick={() => this.selectContent(0)} > <span>{properties[0].title}</span></li>
-            <li className = "contentList_li" onClick={() => this.selectContent(1)} ><span>{properties[1].title}</span></li>
-            <li className = "contentList_li" onClick={() => this.selectContent(2)} > <span>{properties[2].title}</span></li>
-            <li className = "contentList_li" onClick={() => this.selectContent(3)} ><span>{properties[3].title}</span></li>
-            <li className = "contentList_li" onClick={() => this.selectContent(4)} ><span>{properties[4].title}</span></li>
-            <li className = "contentList_li" onClick={() => this.selectContent(5)} > <span>{properties[5].title}</span></li>
-            <li className = "contentList_li" onClick={() => this.selectContent(6)} > <span>{properties[6].title}</span></li>
-            <li className = "contentList_li" onClick={() => this.selectContent(7)} > <span>{properties[7].title}</span></li>
-            <li className = "contentList_li" onClick={() => this.selectContent(8)} > <span>{properties[8].title}</span></li>
-            <li className = "contentList_li" onClick={() => this.selectContent(9)} > <span>{properties[9].title}</span></li>
-          
+          <ol className="ol_1to5">
+            <li className = "contentList_li" onClick={() => this.selectContent(0)} > <span>1. {properties[0].title}</span></li>
+            <li className = "contentList_li" onClick={() => this.selectContent(1)} ><span>2. {properties[1].title}</span></li>
+            <li className = "contentList_li" onClick={() => this.selectContent(2)} > <span>3. {properties[2].title}</span></li>
+            <li className = "contentList_li" onClick={() => this.selectContent(3)} ><span>4. {properties[3].title}</span></li>
+            <li className = "contentList_li" onClick={() => this.selectContent(4)} ><span>5. {properties[4].title}</span></li>
+          </ol>
+          <ol className="ol_6to10">
+          <li className = "contentList_li" onClick={() => this.selectContent(5)} > <span>6. {properties[5].title}</span></li>
+            <li className = "contentList_li" onClick={() => this.selectContent(6)} > <span>7. {properties[6].title}</span></li>
+            <li className = "contentList_li" onClick={() => this.selectContent(7)} > <span>8. {properties[7].title}</span></li>
+            <li className = "contentList_li" onClick={() => this.selectContent(8)} > <span>9. {properties[8].title}</span></li>
+            <li className = "contentList_li" onClick={() => this.selectContent(9)} > <span>10. {properties[9].title}</span></li>
           </ol>
 
         </div>
