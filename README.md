@@ -7,6 +7,9 @@
 ### Open API
 - 영화진흥위원회 오픈API: http://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
 
+#### Reference
+- 영화DB검색: http://www.kobis.or.kr/kobis/business/mast/mvie/searchMovieList.do
+
 
 ---
 
