@@ -25,9 +25,9 @@ class ExtraContentsList extends Component {
     return (
       <div className="App">        
       
-        <div className="content">
+        {/* <div className="content">
           <ExtraContents property={property} />
-        </div>
+        </div> */}
         <div className="contentList">
           <ol className="features">
             <li className = "contentList_li" onClick={() => this.selectContent(0)} > <span>{properties[0].title}</span></li>

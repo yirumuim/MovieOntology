@@ -22,10 +22,10 @@ const ApplicationContainer = () => {
   return (
     <div className={classes.root}>
       <Grid container spacing={3} align-items-xs-center>
-        <Grid item xs={7}>
+        <Grid item xs={6}>
           <ContentContainer className="ContentContainer" />
         </Grid>
-        <Grid item xs={3}>
+        <Grid item xs={4}>
           <ExtraContentsContainer className="ExtraContentsContainer" />
         </Grid>
       </Grid>

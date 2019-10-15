@@ -35,9 +35,6 @@ const ContentContainer = () => {
           <MovieSearchResult className="MovieSearchResult" />
         </Grid>
         <Grid item xs={12} xm={3}>
-          <Trailer className="Trailer" />
-        </Grid>
-        <Grid item xs={12} xm={3}>
           <ShortInformation className="ShortInformation" />
         </Grid>
       </Grid>
