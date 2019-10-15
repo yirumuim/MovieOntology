@@ -4,7 +4,13 @@
 
 ---
 
-### CSS <br>
+### Open API
+- 영화진흥위원회 오픈API: http://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do
+
+
+---
+
+### CSS
 Main Reference
 - Grid: https://material-ui.com/components/grid/ 
 - Card: https://material-ui.com/components/cards/#cards
@@ -24,6 +30,7 @@ Reference
 #### Library
 - React
 - Google's material-ui
+- 영화진흥위원회 오픈API
 
 ---
 Developer By : 김진혁, 신승혁, 정균휘
