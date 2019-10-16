@@ -4,6 +4,8 @@ logs
 npm-debug.log*
 coverage
 
+
+
 # Dependency directories
 node_modules/
 
@@ -16,3 +18,5 @@ build
 
 # misc
 .DS_Store
+
+configuration.js
