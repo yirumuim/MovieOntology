@@ -5,7 +5,6 @@ import Grid from '@material-ui/core/Grid';
 import {
   MovieSearchResult,
   SearchBar,
-  Trailer,
   ShortInformation,
 } from '../../components/index';
 
