@@ -17,8 +17,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-const ExtraContentsContainer = () => {
+const ExtraContentsContainer = (props) => {
   const classes = useStyles();
+  const { searchResult } = props;
 
   return (
     <div className={classes.root}>
@@ -30,7 +31,10 @@ const ExtraContentsContainer = () => {
           <ExtraContentsList className="ExtraContentsList" />
         </Grid>
         <Grid item xs={12} xm={6}>
-          <Trailer className="Trailer" />
+          <Trailer
+            className="Trailer"
+            searchResult={searchResult}
+          />
         </Grid>
       </Grid>
     </div>

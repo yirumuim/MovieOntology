@@ -1,10 +1,11 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 
 import MoiveSearchContents from './MovieSearchContents';
+import ApiRequest from '../../modules/ApiRequest';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -29,18 +30,35 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const MovieSearchResult = () => {
+const MovieSearchResult = (props) => {
+  const [poster, setPoster] = useState('');
+  const { searchResult } = props;
+
+  const fetchPoster = async (key) => {
+    const posterKey = await ApiRequest.getMoviePoster(key);
+    setPoster(posterKey);
+  };
+
+  useEffect(() => {
+    const regex = /^[0-9]{8}$/;
+    if (searchResult !== '' && regex.test(searchResult)) {
+      fetchPoster(searchResult);
+    }
+  }, [searchResult]);
+
   const classes = useStyles();
   return (
     <div>
       <Card className={classes.card}>
         <CardMedia
           className={classes.cover}
-          image="http://www.kobis.or.kr/common/mast/movie/2019/09/96dde341cfd74439953ce52a38b6919f.jpg"
+          image={poster}
           title="Live from space album cover"
         />
         <CardContent className={classes.content}>
-          <MoiveSearchContents />
+          <MoiveSearchContents
+            searchResult={searchResult}
+          />
         </CardContent>
       </Card>
     </div>

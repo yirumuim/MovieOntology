@@ -18,8 +18,9 @@ const useStyles = makeStyles(() => ({
 }));
 
 
-const ContentContainer = () => {
+const ContentContainer = (props) => {
   const classes = useStyles();
+  const { onSearchResultChange, searchResult } = props;
 
   return (
     <div className={classes.root}>
@@ -28,10 +29,16 @@ const ContentContainer = () => {
         spacing={3}
       >
         <Grid item xs={12} xm={2}>
-          <SearchBar className="SearchBar" />
+          <SearchBar
+            className="SearchBar"
+            onSearchResultChange={onSearchResultChange}
+          />
         </Grid>
         <Grid item xs={12} xm={4}>
-          <MovieSearchResult className="MovieSearchResult" />
+          <MovieSearchResult
+            className="MovieSearchResult"
+            searchResult={searchResult}
+          />
         </Grid>
         <Grid item xs={12} xm={3}>
           <ShortInformation className="ShortInformation" />

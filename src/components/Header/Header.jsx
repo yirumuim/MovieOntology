@@ -10,7 +10,7 @@ const Header = () => (
     <AppBar position="static">
       <Toolbar>
         <Typography variant="title" color="inherit">
-          React & Materail-UI Sample Application
+          조커: 20199950 & 엑시트: 20184621
         </Typography>
       </Toolbar>
     </AppBar>
