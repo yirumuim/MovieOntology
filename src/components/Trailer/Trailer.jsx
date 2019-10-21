@@ -3,18 +3,21 @@ import Youtube from 'react-youtube';
 
 import ApiRequest from '../../modules/ApiRequest';
 
-const Trailer = () => {
+const Trailer = (props) => {
   const [trailer, setTrailer] = useState('');
+  const { searchResult } = props;
 
-  const fetchTrailer = async (collection, key) => {
-    const temp = await ApiRequest.getRawCollection(collection, key);
-    setTrailer(temp);
-    return temp;
+  const fetchTrailer = async (key) => {
+    const trailerKey = await ApiRequest.getMovieTrailer(key);
+    setTrailer(trailerKey);
   };
 
   useEffect(() => {
-    fetchTrailer('Movie', '20199950');
-  }, [trailer]);
+    const regex = /^[0-9]{8}$/;
+    if (searchResult !== '' && regex.test(searchResult)) {
+      fetchTrailer(searchResult);
+    }
+  }, [searchResult]);
 
   const opts = {
     width: '100%',

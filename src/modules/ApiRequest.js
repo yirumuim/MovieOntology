@@ -1,9 +1,13 @@
 import firestore from '../firestore';
 
 export default {
-  getRawCollection(collectionName, key) {
-    const collectionRef = firestore.collection(collectionName).doc(key);
+  getMovieTrailer(key) {
+    const collectionRef = firestore.collection('Movie').doc(key);
     return collectionRef.get().then((value) => value.data().trailer);
+  },
+  getMoviePoster(key) {
+    const collectionRef = firestore.collection('Movie').doc(key);
+    return collectionRef.get().then((value) => value.data().poster);
   },
   // getRawCollection(collectionName) {
   //   return firestore.collection(collectionName)
