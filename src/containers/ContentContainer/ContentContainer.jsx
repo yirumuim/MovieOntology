@@ -5,7 +5,7 @@ import Grid from '@material-ui/core/Grid';
 import {
   MovieSearchResult,
   SearchBar,
-  ShortInformation,
+  // ShortInformation,
 } from '../../components/index';
 
 const useStyles = makeStyles(() => ({
@@ -39,9 +39,6 @@ const ContentContainer = (props) => {
             className="MovieSearchResult"
             searchResult={searchResult}
           />
-        </Grid>
-        <Grid item xs={12} xm={3}>
-          <ShortInformation className="ShortInformation" />
         </Grid>
       </Grid>
     </div>
