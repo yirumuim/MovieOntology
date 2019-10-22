@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import Youtube from 'react-youtube';
-
 import ApiRequest from '../../modules/ApiRequest';
+
 
 const Trailer = (props) => {
   const [trailer, setTrailer] = useState('');
