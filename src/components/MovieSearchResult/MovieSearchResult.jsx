@@ -15,8 +15,6 @@ import ShortInformation from '../ShortInformation/ShortInformation';
 
 const useStyles = makeStyles((theme) => ({
   card: {
-    // display: 'flex',
-    // textAlign: 'vertical center',
   },
   expand: {
     transform: 'rotate(0deg)',
@@ -29,8 +27,6 @@ const useStyles = makeStyles((theme) => ({
     transform: 'rotate(180deg)',
   },
   content: {
-    padding: theme.spacing(5, 2),
-    height: 200,
     display: 'flex',
     flexDirection: 'column',
     justifyContent: 'center',
@@ -39,6 +35,9 @@ const useStyles = makeStyles((theme) => ({
     paddingTop: '140%',
     width: '100%',
     display: 'flex',
+  },
+  btn_grid: {
+    backgroundColor: 'gray',
   },
 }));
 
@@ -75,13 +74,13 @@ const MovieSearchResult = (props) => {
               title="Live from space album cover"
             />
           </Grid>
-          <Grid item xs={12} sm={7}>
+          <Grid item xs={12} sm={7} className={classes.content}>
             <MoiveSearchContents
               searchResult={searchResult}
             />
           </Grid>
-          <CardActions disableSpacing>
-            <Grid item xs={12}>
+          <Grid item xs={12}>
+            <CardActions disableSpacing className={classes.btn_grid}>
               <IconButton
                 className={clsx(classes.expand, {
                   [classes.expandOpen]: expanded,
@@ -92,8 +91,8 @@ const MovieSearchResult = (props) => {
               >
                 <ExpandMoreIcon />
               </IconButton>
-            </Grid>
-          </CardActions>
+            </CardActions>
+          </Grid>
         </Grid>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
           <ShortInformation />
