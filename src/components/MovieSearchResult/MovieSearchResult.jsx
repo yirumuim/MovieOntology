@@ -9,6 +9,8 @@ import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
+import Axios from 'axios';
+
 import MoiveSearchContents from './MovieSearchContents';
 import ApiRequest from '../../modules/ApiRequest';
 import ShortInformation from '../ShortInformation/ShortInformation';
@@ -56,10 +58,30 @@ const MovieSearchResult = (props) => {
     setPoster(posterKey);
   };
 
+  const fetchSearchResult = async (searchValue) => {
+    const result = await Axios(
+      `http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=430156241533f1d058c603178cc3ca0e&movieNm=${searchValue}`,
+    );
+    const resultSize = result.data.movieListResult.movieList.length;
+    console.log(result.data.movieListResult.movieList);
+    if (resultSize !== 0) {
+      const resultMovieCd = result.data.movieListResult.movieList[0].movieCd;
+      const detailResult = await Axios(
+        `http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=430156241533f1d058c603178cc3ca0e&movieCd=${resultMovieCd}`,
+      );
+      console.log(detailResult.data.movieInfoResult.movieInfo.actors);
+      console.log(detailResult.data.movieInfoResult.movieInfo);
+    }
+  };
+
+
   useEffect(() => {
     const regex = /^[0-9]{8}$/;
-    if (searchResult !== '' && regex.test(searchResult)) {
-      fetchPoster(searchResult);
+    if (searchResult !== '') {
+      if (regex.test(searchResult)) {
+        fetchPoster(searchResult);
+      }
+      fetchSearchResult(searchResult);
     }
   }, [searchResult]);
 
