@@ -20,7 +20,11 @@ const useStyles = makeStyles(() => ({
 
 const ContentContainer = (props) => {
   const classes = useStyles();
-  const { onSearchResultChange, onSearchMovieCdChange, searchResult } = props;
+  const {
+    onSearchResultChange,
+    onSearchMovieCdChange,
+    searchResult,
+  } = props;
 
   return (
     <div className={classes.root}>

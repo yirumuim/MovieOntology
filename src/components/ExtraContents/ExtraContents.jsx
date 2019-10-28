@@ -1,6 +1,5 @@
 import React from 'react';
 import './ExtraContents.css';
-import PropTypes from 'prop-types';
 
 const ExtraContents = ({ property }) => {
   const {
@@ -14,7 +13,7 @@ const ExtraContents = ({ property }) => {
   } = property;
   return (
     <div id={`card-${index}`} className="card">
-      <img className ="poster" src={picture} alt={title} />
+      <img className="poster" src={picture} alt={title} />
       <div className="details">
         <span className="index">{index + 1}</span>
         <table>
@@ -40,10 +39,6 @@ const ExtraContents = ({ property }) => {
       </div>
     </div>
   );
-};
-
-ExtraContents.propTypes = {
-  property: PropTypes.object.isRequired
 };
 
 export default ExtraContents;
