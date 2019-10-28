@@ -18,6 +18,15 @@ export default {
         return ' ';
       });
   },
+  getActorPhoto(key) {
+    const collectionRef = firestore.collection('Actor').doc(key);
+    return collectionRef.get().then((value) => value.data().photo)
+      .catch((error) => {
+        console.log(`getActorPhoto - ${error}`); // eslint-disable-line no-console
+        // 대체 이미지 (쿼카) : https://user-images.githubusercontent.com/18658656/67674980-4e597280-f9c1-11e9-88d0-2d638da8fefa.PNG
+        return ' ';
+      });
+  },
   // getRawCollection(collectionName) {
   //   return firestore.collection(collectionName)
   //     .get()

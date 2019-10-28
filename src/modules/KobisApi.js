@@ -19,6 +19,12 @@ export default {
     );
     return result.data.movieInfoResult.movieInfo;
   },
+  async getActorsFromActorName(peopleName) {
+    const result = await Axios(
+      `http://www.kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleList.json?key=430156241533f1d058c603178cc3ca0e&peopleNm=${peopleName}`,
+    );
+    return result.data.peopleListResult.peopleList;
+  },
   isHaveResultValuesFromRequest(apiResult) {
     if (apiResult.totCnt === 0) {
       return false;
@@ -27,6 +33,9 @@ export default {
   },
   getOneMovieCdFromRequest(apiResult) {
     return apiResult.movieList[0].movieCd;
+  },
+  getOneActorCdFromActorRequest(apiResult) {
+    return apiResult[0].peopleCd;
   },
   getActorsFromDetailRequest(apiDetailResult) {
     return apiDetailResult.actors;

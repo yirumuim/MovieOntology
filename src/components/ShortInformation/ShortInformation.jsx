@@ -1,9 +1,12 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Typography from '@material-ui/core/Typography';
+
+import ApiRequest from '../../modules/ApiRequest';
+import KobisApi from '../../modules/KobisApi';
 
 const useStyles = makeStyles((theme) => ({
   card: {
@@ -28,31 +31,69 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-const ShortInformation = () => {
+const ShortInformation = (props) => {
+  const [photo, setPhoto] = useState([]);
+
+  const { state } = props;
   const classes = useStyles();
+
+  const fetchPhoto = async (key) => {
+    const photoKey = await ApiRequest.getActorPhoto(key);
+    return photoKey;
+  };
+
+  const saveActorsCd = async () => {
+    const photoValue = state.actors.map(async (actor) => {
+      const actorsResult = await KobisApi.getActorsFromActorName(actor);
+      return fetchPhoto(KobisApi.getOneActorCdFromActorRequest(actorsResult));
+    });
+    setPhoto(await Promise.all(photoValue));
+  };
+
+  useEffect(() => {
+    saveActorsCd();
+  }, [state]);
+
   return (
     <div>
       <Card className={classes.card}>
-        <CardMedia
-          className={classes.cover}
-          image="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2F82%2F201909241213414821.jpg&type=u120_150&quality=95"
-          title="Live from space album cover"
-        />
-        <CardMedia
-          className={classes.cover}
-          image="http://www.kobis.or.kr/common/mast/people/2019/07/9b53a6d4aec043a38365570f0139089c.jpg"
-          title="Live from space album cover"
-        />
-        <CardMedia
-          className={classes.cover}
-          image="http://www.kobis.or.kr/common/mast/people/2019/07/912db92b701645529d79c97e23b92ea2.jpg"
-          title="Live from space album cover"
-        />
+        {
+          photo.map((imageAddress) => (
+            <CardMedia
+              className={classes.cover}
+              image={imageAddress}
+              title="Live from space album cover"
+            />
+          ))
+        }
         <CardContent className={classes.content}>
           <Typography>
-            <p>출연진 : 조정석, 윤아, 고두심</p>
+            <p>
+              출연진 :
+              {' '}
+              {
+                state.actors.map((actor) => (
+                  `${actor}, `
+                ))
+              }
+            </p>
+            <p>
+              장르 :
+              {' '}
+              {
+                state.genres.map((genre) => (
+                  `${genre}, `
+                ))
+              }
+            </p>
+            <p>
+              개봉일 :
+              {' '}
+              {state.openDt}
+            </p>
+            {/* <p>출연진 : 조정석, 윤아, 고두심</p>
             <p>개봉일 : 2019.07.31</p>
-            <p>장르 : 액션, 코미디</p>
+            <p>장르 : 액션, 코미디</p> */}
           </Typography>
         </CardContent>
       </Card>

@@ -49,7 +49,7 @@ function reducer(state, action) {
       return {
         ...state,
         [action.key]: _.slice(Object.values(action.value)
-          .map((item) => (item.peopleNm)), 0, 2),
+          .map((item) => (item.peopleNm)), 0, 3),
       };
     case 'directors':
       return {
@@ -63,14 +63,10 @@ function reducer(state, action) {
         [action.key]: _.slice(Object.values(action.value)
           .map((item) => (item.genreNm)), 0, 3),
       };
-    case 'movieNm':
-      return {
-        ...state,
-        [action.key]: action.value,
-      };
     default:
       return {
         ...state,
+        [action.key]: action.value,
       };
   }
 }
@@ -101,6 +97,7 @@ const MovieSearchResult = (props) => {
     // 검색 결과가 있는 경우
     if (KobisApi.isHaveResultValuesFromRequest(result)) {
       const resultMovieCd = KobisApi.getOneMovieCdFromRequest(result);
+
       onSearchMovieCdChange(resultMovieCd);
 
       fetchPoster(resultMovieCd);
@@ -112,10 +109,10 @@ const MovieSearchResult = (props) => {
     }
   };
 
-
   useEffect(() => {
     if (searchResult !== '') {
       fetchSearchResult(searchResult);
+      setExpanded(false);
     }
   }, [searchResult]);
 
@@ -153,7 +150,9 @@ const MovieSearchResult = (props) => {
           </Grid>
         </Grid>
         <Collapse in={expanded} timeout="auto" unmountOnExit>
-          <ShortInformation />
+          <ShortInformation
+            state={state}
+          />
         </Collapse>
       </Card>
     </div>
