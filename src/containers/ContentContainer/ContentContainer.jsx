@@ -20,7 +20,7 @@ const useStyles = makeStyles(() => ({
 
 const ContentContainer = (props) => {
   const classes = useStyles();
-  const { onSearchResultChange, searchResult } = props;
+  const { onSearchResultChange, onSearchMovieCdChange, searchResult } = props;
 
   return (
     <div className={classes.root}>
@@ -38,6 +38,7 @@ const ContentContainer = (props) => {
           <MovieSearchResult
             className="MovieSearchResult"
             searchResult={searchResult}
+            onSearchMovieCdChange={onSearchMovieCdChange}
           />
         </Grid>
       </Grid>
