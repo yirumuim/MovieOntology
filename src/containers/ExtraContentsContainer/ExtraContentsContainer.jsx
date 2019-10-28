@@ -19,7 +19,7 @@ const useStyles = makeStyles(() => ({
 
 const ExtraContentsContainer = (props) => {
   const classes = useStyles();
-  const { searchResult } = props;
+  const { searchMovieCd } = props;
 
   return (
     <div className={classes.root}>
@@ -33,7 +33,7 @@ const ExtraContentsContainer = (props) => {
         <Grid item xs={12} xm={6}>
           <Trailer
             className="Trailer"
-            searchResult={searchResult}
+            searchMovieCd={searchMovieCd}
           />
         </Grid>
       </Grid>

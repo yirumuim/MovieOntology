@@ -18,9 +18,14 @@ const useStyles = makeStyles((theme) => ({
 
 const ApplicationContainer = () => {
   const [searchResult, setSearchResult] = useState('');
+  const [searchMovieCd, setsearchMovieCd] = useState('');
 
   const handleSearchResultChange = (e) => {
     setSearchResult(e);
+  };
+
+  const handleSearchMovieCdChange = (e) => {
+    setsearchMovieCd(e);
   };
 
   const classes = useStyles();
@@ -32,13 +37,14 @@ const ApplicationContainer = () => {
           <ContentContainer
             className="ContentContainer"
             onSearchResultChange={handleSearchResultChange}
+            onSearchMovieCdChange={handleSearchMovieCdChange}
             searchResult={searchResult}
           />
         </Grid>
         <Grid item xs={5}>
           <ExtraContentsContainer
             className="ExtraContentsContainer"
-            searchResult={searchResult}
+            searchMovieCd={searchMovieCd}
           />
         </Grid>
       </Grid>

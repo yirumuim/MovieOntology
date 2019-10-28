@@ -45,7 +45,7 @@ const useStyles = makeStyles((theme) => ({
 
 const MovieSearchResult = (props) => {
   const [poster, setPoster] = useState('');
-  const { searchResult } = props;
+  const { searchResult, onSearchMovieCdChange } = props;
   const [expanded, setExpanded] = React.useState(false);
 
   const handleExpandClick = () => {
@@ -62,9 +62,11 @@ const MovieSearchResult = (props) => {
       `http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=430156241533f1d058c603178cc3ca0e&movieNm=${searchValue}`,
     );
     const resultSize = result.data.movieListResult.movieList.length;
-    console.log(result.data.movieListResult.movieList);
+    // 검색 결과가 있는 경우
     if (resultSize !== 0) {
       const resultMovieCd = result.data.movieListResult.movieList[0].movieCd;
+      onSearchMovieCdChange(resultMovieCd);
+      fetchPoster(resultMovieCd);
       const detailResult = await Axios(
         `http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=430156241533f1d058c603178cc3ca0e&movieCd=${resultMovieCd}`,
       );
@@ -77,9 +79,9 @@ const MovieSearchResult = (props) => {
   useEffect(() => {
     const regex = /^[0-9]{8}$/;
     if (searchResult !== '') {
-      if (regex.test(searchResult)) {
-        fetchPoster(searchResult);
-      }
+      // if (regex.test(searchResult)) {
+      //   fetchPoster(searchResult);
+      // }
       fetchSearchResult(searchResult);
     }
   }, [searchResult]);
