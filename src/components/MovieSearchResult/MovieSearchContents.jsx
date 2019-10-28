@@ -8,7 +8,7 @@ theme = responsiveFontSizes(theme);
 const MovieSearchContents = (props) => {
   // const [year, setYear] = useState(null);
 
-  const { state, searchResult } = props;
+  const { state } = props;
 
   /*
   const fetchYear = (result) => {
@@ -29,7 +29,39 @@ const MovieSearchContents = (props) => {
       <div>
         <Typography variant="h3">{state.movieNm}</Typography>
         <Typography variant="h6">
-          <table>
+          <p>
+            출연진 :
+            {' '}
+            {
+              state.actors.map((actor) => (
+                `${actor}, `
+              ))
+            }
+          </p>
+          <p>
+            감독 :
+            {' '}
+            {
+              state.directors.map((director) => (
+                `${director}, `
+              ))
+            }
+          </p>
+          <p>
+            장르 :
+            {' '}
+            {
+              state.genres.map((genre) => (
+                `${genre}, `
+              ))
+            }
+          </p>
+          <p>
+            개봉일 :
+            {' '}
+            {state.openDt}
+          </p>
+          {/* <table>
             <tbody>
               <tr>
                 <td>장르</td>
@@ -48,11 +80,19 @@ const MovieSearchContents = (props) => {
                 }
               </tr>
               <tr>
+                <td>출연배우</td>
+                {
+                  state.actors.map((actor) => (
+                    <td>{actor}</td>
+                  ))
+                }
+              </tr>
+              <tr>
                 <td>검색결과</td>
                 <td>{searchResult}</td>
               </tr>
             </tbody>
-          </table>
+          </table> */}
         </Typography>
       </div>
     </MuiThemeProvider>
