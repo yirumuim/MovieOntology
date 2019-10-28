@@ -39,6 +39,7 @@ const ApplicationContainer = () => {
             onSearchResultChange={handleSearchResultChange}
             onSearchMovieCdChange={handleSearchMovieCdChange}
             searchResult={searchResult}
+            searchMovieCd={searchMovieCd}
           />
         </Grid>
         <Grid item xs={5}>

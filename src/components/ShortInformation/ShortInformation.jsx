@@ -35,7 +35,7 @@ const ShortInformation = () => {
       <Card className={classes.card}>
         <CardMedia
           className={classes.cover}
-          image="http://www.kobis.or.kr/common/mast/people/2019/07/b9982ae04a9b4558885a1a6ac03d2fe1.jpg"
+          image="https://search.pstatic.net/common/?src=https%3A%2F%2Fssl.pstatic.net%2Fsstatic%2Fpeople%2F82%2F201909241213414821.jpg&type=u120_150&quality=95"
           title="Live from space album cover"
         />
         <CardMedia

@@ -1,18 +1,18 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useReducer } from 'react';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import Card from '@material-ui/core/Card';
-// import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
 import Collapse from '@material-ui/core/Collapse';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import IconButton from '@material-ui/core/IconButton';
-import Axios from 'axios';
+import _ from 'lodash';
 
-import MoiveSearchContents from './MovieSearchContents';
 import ApiRequest from '../../modules/ApiRequest';
+import KobisApi from '../../modules/KobisApi';
+import MoiveSearchContents from './MovieSearchContents';
 import ShortInformation from '../ShortInformation/ShortInformation';
 
 const useStyles = makeStyles((theme) => ({
@@ -43,10 +43,49 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+function reducer(state, action) {
+  switch (action.key) {
+    case 'actors':
+      return {
+        ...state,
+        [action.key]: _.slice(Object.values(action.value)
+          .map((item) => (item.peopleNm)), 0, 2),
+      };
+    case 'directors':
+      return {
+        ...state,
+        [action.key]: _.slice(Object.values(action.value)
+          .map((item) => (item.peopleNm)), 0, 2),
+      };
+    case 'genres':
+      return {
+        ...state,
+        [action.key]: _.slice(Object.values(action.value)
+          .map((item) => (item.genreNm)), 0, 3),
+      };
+    case 'movieNm':
+      return {
+        ...state,
+        [action.key]: action.value,
+      };
+    default:
+      return {
+        ...state,
+      };
+  }
+}
+
 const MovieSearchResult = (props) => {
+  const [state, dispatch] = useReducer(reducer, {
+    actors: [],
+    directors: [],
+    genres: [],
+    movieNm: '',
+  });
   const [poster, setPoster] = useState('');
-  const { searchResult, onSearchMovieCdChange } = props;
   const [expanded, setExpanded] = React.useState(false);
+
+  const { searchResult, onSearchMovieCdChange } = props;
 
   const handleExpandClick = () => {
     setExpanded(!expanded);
@@ -58,30 +97,24 @@ const MovieSearchResult = (props) => {
   };
 
   const fetchSearchResult = async (searchValue) => {
-    const result = await Axios(
-      `http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieList.json?key=430156241533f1d058c603178cc3ca0e&movieNm=${searchValue}`,
-    );
-    const resultSize = result.data.movieListResult.movieList.length;
+    const result = await KobisApi.getAllDataFromMovieName(searchValue);
     // 검색 결과가 있는 경우
-    if (resultSize !== 0) {
-      const resultMovieCd = result.data.movieListResult.movieList[0].movieCd;
+    if (KobisApi.isHaveResultValuesFromRequest(result)) {
+      const resultMovieCd = KobisApi.getOneMovieCdFromRequest(result);
       onSearchMovieCdChange(resultMovieCd);
+
       fetchPoster(resultMovieCd);
-      const detailResult = await Axios(
-        `http://www.kobis.or.kr/kobisopenapi/webservice/rest/movie/searchMovieInfo.json?key=430156241533f1d058c603178cc3ca0e&movieCd=${resultMovieCd}`,
-      );
-      console.log(detailResult.data.movieInfoResult.movieInfo.actors);
-      console.log(detailResult.data.movieInfoResult.movieInfo);
+
+      const detailResult = await KobisApi.getMovieDetailFromCd(resultMovieCd);
+      Object.entries(detailResult).forEach((item) => {
+        dispatch({ key: item[0], value: item[1] });
+      });
     }
   };
 
 
   useEffect(() => {
-    const regex = /^[0-9]{8}$/;
     if (searchResult !== '') {
-      // if (regex.test(searchResult)) {
-      //   fetchPoster(searchResult);
-      // }
       fetchSearchResult(searchResult);
     }
   }, [searchResult]);
@@ -101,6 +134,7 @@ const MovieSearchResult = (props) => {
           <Grid item xs={12} sm={7} className={classes.content}>
             <MoiveSearchContents
               searchResult={searchResult}
+              state={state}
             />
           </Grid>
           <Grid item xs={12}>
