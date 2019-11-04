@@ -80,6 +80,7 @@ const MovieSearchResult = (props) => {
   });
   const [poster, setPoster] = useState('');
   const [expanded, setExpanded] = React.useState(false);
+  const { index } = props;
 
   const { searchResult, onSearchMovieCdChange } = props;
 
@@ -96,7 +97,7 @@ const MovieSearchResult = (props) => {
     const result = await KobisApi.getAllDataFromMovieName(searchValue);
     // 검색 결과가 있는 경우
     if (KobisApi.isHaveResultValuesFromRequest(result)) {
-      const resultMovieCd = KobisApi.getOneMovieCdFromRequest(result);
+      const resultMovieCd = KobisApi.getOneMovieCdFromRequest(result, index);
 
       onSearchMovieCdChange(resultMovieCd);
 
@@ -114,7 +115,7 @@ const MovieSearchResult = (props) => {
       fetchSearchResult(searchResult);
       setExpanded(false);
     }
-  }, [searchResult]);
+  }, [searchResult, index]);
 
   const classes = useStyles();
   return (

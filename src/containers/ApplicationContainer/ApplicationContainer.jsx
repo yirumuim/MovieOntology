@@ -19,13 +19,18 @@ const useStyles = makeStyles((theme) => ({
 const ApplicationContainer = () => {
   const [searchResult, setSearchResult] = useState('');
   const [searchMovieCd, setsearchMovieCd] = useState('');
+  const [index, setIndex] = useState(0);
 
   const handleSearchResultChange = (e) => {
     setSearchResult(e);
+    setIndex(0);
   };
 
   const handleSearchMovieCdChange = (e) => {
     setsearchMovieCd(e);
+  };
+  const handleSelectMovie = (e) => {
+    setIndex(e);
   };
 
   const classes = useStyles();
@@ -40,12 +45,16 @@ const ApplicationContainer = () => {
             onSearchMovieCdChange={handleSearchMovieCdChange}
             searchResult={searchResult}
             searchMovieCd={searchMovieCd}
+            index={index}
           />
         </Grid>
         <Grid item xs={5}>
           <ExtraContentsContainer
             className="ExtraContentsContainer"
             searchMovieCd={searchMovieCd}
+            searchResult={searchResult}
+            onSelectMovie={handleSelectMovie}
+            index={index}
           />
         </Grid>
       </Grid>

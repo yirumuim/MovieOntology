@@ -24,6 +24,7 @@ const ContentContainer = (props) => {
     onSearchResultChange,
     onSearchMovieCdChange,
     searchResult,
+    index,
   } = props;
 
   return (
@@ -41,6 +42,7 @@ const ContentContainer = (props) => {
         <Grid item xs={12} xm={4}>
           <MovieSearchResult
             className="MovieSearchResult"
+            index={index}
             searchResult={searchResult}
             onSearchMovieCdChange={onSearchMovieCdChange}
           />

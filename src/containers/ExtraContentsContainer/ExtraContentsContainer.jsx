@@ -19,8 +19,12 @@ const useStyles = makeStyles(() => ({
 
 const ExtraContentsContainer = (props) => {
   const classes = useStyles();
-  const { searchMovieCd } = props;
-
+  const {
+    searchMovieCd,
+    onSelectMovie,
+    index,
+    searchResult,
+  } = props;
   return (
     <div className={classes.root}>
       <Grid
@@ -28,7 +32,12 @@ const ExtraContentsContainer = (props) => {
         spacing={3}
       >
         <Grid item xs={12} xm={6}>
-          <ExtraContentsList className="ExtraContentsList" />
+          <ExtraContentsList 
+            className="ExtraContentsList"
+            onSelectMovie={onSelectMovie}
+            searchResult={searchResult}
+            index={index} 
+          />
         </Grid>
         <Grid item xs={12} xm={6}>
           <Trailer
