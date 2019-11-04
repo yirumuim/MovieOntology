@@ -1,0 +1,14 @@
+.Item_wrapper {
+    width: 100%;
+    height: 300px;
+}
+
+.poster {
+    max-width: 50%;
+}
+
+.Item_content {
+    float: right;
+    width: 60%;
+    
+}

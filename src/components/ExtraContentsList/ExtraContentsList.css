@@ -1,0 +1,23 @@
+.content{
+    float: left;
+}
+.contentList{
+    background-color: #F0F0F0;
+    padding: 1rem;
+    border-radius: 5px;
+    float:right;
+}
+.contentList_li{    
+    list-style:none;
+    background-color: lightgrey;
+    padding: 5px 0px 5px 5px;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #efefef;
+    border-radius: 5px;
+}
+.ol_1to5{
+    float: left;
+}
+.ol_6to10{
+    float:left;
+}

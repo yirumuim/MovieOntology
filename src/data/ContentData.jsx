@@ -1,0 +1,146 @@
+const data = {
+    "properties": [
+    { //index, picture, title, genre, dirctor, attendance, actors
+        "_id": "593e9297e17df20c4a237d42",
+        "index": 0,
+        "picture": "http://www.kobis.or.kr/common/mast/movie/2019/09/96dde341cfd74439953ce52a38b6919f.jpg",
+        "title": "조커",
+        "genre": "액션, 드라마, 스릴러",
+        "director": "토드 필립스",
+        "attendance": "2,589,600명",
+        "actors": "호아킨 피닉스, 재지 비츠"
+    },
+    {
+        "_id": "593e9297ec4cca9c56bf61af",
+        "index": 1,
+        "price": 703725,
+        "picture": "http://www.kobis.or.kr/common/mast/movie/2019/09/df97d5bef50a4211808f2d552007856b.jpg",
+        "title": "가장 보통의 연애",
+        "address": "255 Raleigh Place",
+        "latitude": -33.944471,
+        "longitude": 151.2541,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "carSpaces": 0
+    },
+    {
+        "_id": "593e929773c71925e5d7c11c",
+        "index": 2,
+        "price": 837111,
+        "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property03.jpg",
+        "title": "퍼팩트맨",
+        "address": "580 Amber Street",
+        "latitude": -33.944644,
+        "longitude": 151.24834,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "carSpaces": 0
+    },
+    {
+        "_id": "593e92973d4d15eedb129aee",
+        "index": 3,
+        "price": 648223,
+        "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property04.jpg",
+        "title": "장사리:'잊혀진 영웅들'",
+        "address": "854 Varanda Place",
+        "latitude": -33.940396,
+        "longitude": 151.2469,
+        "bedrooms": 3,
+        "bathrooms": 2,
+        "carSpaces": 0
+    },
+    {
+        "_id": "593e929728b7f8543b7907e1",
+        "index": 4,
+        "price": 771826,
+        "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property05.jpg",
+        "title": "양자물리학",
+        "address": "857 Rockaway Parkway",
+        "latitude": -33.944562,
+        "longitude": 151.2503,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "carSpaces": 1
+    },
+    {
+        "_id": "593e92975996a6263d146444",
+        "index": 5,
+        "price": 686238,
+        "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property01.jpg",
+        "title": "제미니 맨",
+        "address": "543 Harman Street",
+        "latitude": -33.939304,
+        "longitude": 151.25046,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "carSpaces": 1
+    },
+    {
+        "_id": "593e9297a13e246da5ba0884",
+        "index": 6,
+        "price": 595377,
+        "picture": "http://www.kobis.or.kr/common/mast/movie/2019/08/15116d447a3141e3ae46d252cb3aa7b3.jpg",
+        "title": "원스 어폰 어 타임... 인 할리우드",
+        "address": "787 Gerald Court",
+        "latitude": -33.937819,
+        "longitude": 151.25774,
+        "bedrooms": 2,
+        "bathrooms": 2,
+        "carSpaces": 2
+    },
+    {
+        "_id": "593e9297afa51a013fcd07d5",
+        "index": 7,
+        "price": 696189,
+        "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property03.jpg",
+        "title": "소피와 드래곤",
+        "address": "416 Vandervoort Avenue",
+        "latitude": -33.943154,
+        "longitude": 151.24687,
+        "bedrooms": 4,
+        "bathrooms": 1,
+        "carSpaces": 1
+    },
+    {
+        "_id": "593e92972bd8fd05f2ab1a89",
+        "index": 8,
+        "price": 716114,
+        "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property04.jpg",
+        "title": "잃어버린 세계",
+        "address": "437 Mill Street",
+        "latitude": -33.943723,
+        "longitude": 151.25278,
+        "bedrooms": 3,
+        "bathrooms": 1,
+        "carSpaces": 0
+    },
+    {
+        "_id": "593e9297fe2e6d32c859ecf4",
+        "index": 9,
+        "price": 739852,
+        "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property05.jpg",
+        "title": "판소리 복서",
+        "address": "553 Friel Place",
+        "latitude": -33.942459,
+        "longitude": 151.24941,
+        "bedrooms": 2,
+        "bathrooms": 1,
+        "carSpaces": 1
+    },
+    {
+        "_id": "593e92970481ccf52f948e6d",
+        "index": 10,
+        "price": 625917,
+        "picture": "https://ihatetomatoes.net/demos/_rw/01-real-estate/tn_property01.jpg",
+        "title": "쿵푸 보이",
+        "address": "687 Opal Court",
+        "latitude": -33.939606,
+        "longitude": 151.25289,
+        "bedrooms": 4,
+        "bathrooms": 1,
+        "carSpaces": 2
+    },
+    ]
+}
+
+export default data;

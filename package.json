@@ -1,0 +1,54 @@
+{
+  "name": "my-app",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "@material-ui/core": "^4.5.0",
+    "@material-ui/icons": "^4.5.1",
+    "axios": "^0.19.0",
+    "clsx": "^1.0.4",
+    "contentful": "^7.10.0",
+    "firebase": "^7.2.0",
+    "lodash": "^4.17.15",
+    "material-ui": "^0.20.2",
+    "material-ui-search-bar": "^0.4.2",
+    "prop-types": "^15.7.2",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-firestore": "^1.0.1",
+    "react-image": "^2.2.0",
+    "react-scripts": "3.1.1",
+    "react-youtube": "^7.9.0",
+    "save-dev": "^0.0.1-security"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.0.2",
+    "eslint": "^6.1.0",
+    "eslint-config-airbnb": "^18.0.1",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
+    "react-youtube": "^7.9.0"
+  }
+}
