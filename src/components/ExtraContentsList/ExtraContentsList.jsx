@@ -41,7 +41,9 @@ const ExtraContentsList = (props) => {
     onSelectMovie,
     searchResult,
   } = props;
-  const [titles, setTitles] = useState([]);
+  const [titlesLeft, setTitlesLeft] = useState([]);
+  const [titlesRight, setTitlesRight] = useState([]);
+
   const [listCount, setListCount] = useState(0);
 
   // const number1 = [0, 1, 2, 3, 4];
@@ -50,19 +52,27 @@ const ExtraContentsList = (props) => {
   const fetchSearchResult = async (searchValue) => {
     const result = await KobisApi.getAllDataFromMovieName(searchValue);
     // 검색 결과가 있는 경우
-    const count = KobisApi.getTotalCount(result);
-    if (count >= 10) {
-      setListCount(10);
-    } else {
-      setListCount(count);
+    if (KobisApi.isHaveResultValuesFromRequest(result)) {
+      const count = KobisApi.getTotalCount(result);
+      if (count <= 5) {
+        Object.entries(result.movieList).forEach((item) => {
+          setTitlesLeft((t) => t.concat(item[1].movieNm));
+        });
+      } else {
+        console.log(Object.entries(result.movieList).slice(0, 5));
+        Object.entries(result.movieList).slice(0, 5).forEach((item) => {
+          setTitlesLeft((t) => t.concat(item[1].movieNm));
+        });
+        Object.entries(result.movieList).slice(5, 10).forEach((item) => {
+          setTitlesRight((t) => t.concat(item[1].movieNm));
+        });
+      }
     }
-    Object.entries(result.movieList).forEach((item) => {
-      setTitles((t) => t.concat(item[1].movieNm));
-    });
   };
 
   const initTitles = () => {
-    setTitles([]);
+    setTitlesLeft([]);
+    setTitlesRight([]);
   };
 
   useEffect(() => {
@@ -81,7 +91,7 @@ const ExtraContentsList = (props) => {
       <Card className={classes.card}>
         <div className="contentList">
           <ol className="ol_1to5">
-            {Object.entries(titles).map((item) => (
+            {Object.entries(titlesLeft).map((item) => (
               <li>
                 <div
                   role="button"
@@ -97,41 +107,26 @@ const ExtraContentsList = (props) => {
               </li>
             ))}
           </ol>
-
-
-          {/* number1.map((i) => (
-              <li>
-                <div
-                  role="button"
-                  className="contentList_li"
-                  onClick={() => onSelectMovie(i)}
-                  onKeyPress={() => onSelectMovie(i)}
-                  tabIndex={i}
-                >
-                  <span>
-                    {properties[i].title}
-                  </span>
-                </div>
-              </li>
-            )) */}
-          {/*
           <ol className="ol_1to5" start="6">
-            {number2.map((i) => (
+
+            {console.log(titlesRight)}
+            {Object.entries(titlesRight).map((item) => (
+
               <li>
                 <div
                   role="button"
                   className="contentList_li"
-                  onClick={() => onSelectMovie(i)}
-                  onKeyPress={() => onSelectMovie(i)}
-                  tabIndex={i}
+                  onClick={() => onSelectMovie(parseInt(item[0], 10) + 5)}
+                  onKeyPress={() => onSelectMovie(parseInt(item[0], 10) + 5)}
+                  tabIndex={parseInt(item[0], 10) + 5}
                 >
                   <span>
-                    {properties[i].title}
+                    {item[1]}
                   </span>
                 </div>
               </li>
             ))}
-          </ol> */}
+          </ol>
         </div>
       </Card>
     </div>
