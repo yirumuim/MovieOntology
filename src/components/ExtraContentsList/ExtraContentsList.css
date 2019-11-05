@@ -2,10 +2,13 @@
     float: left;
 }
 .contentList{
+    margin-left: auto;
+    margin-right: auto;
     background-color: #F0F0F0;
     padding: 1rem;
     border-radius: 5px;
     float:right;
+    
 }
 .contentList_li{    
     list-style:none;
@@ -14,6 +17,12 @@
     margin-bottom: 5px;
     border-bottom: 1px solid #efefef;
     border-radius: 5px;
+    
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 224px;
+    text-align: center;
 }
 .ol_1to5{
     float: left;
