@@ -36,8 +36,10 @@ export default {
     }
     return true;
   },
+  getFirstMovieCdFromRequest(apiResult) {
+    return apiResult.movieList[0].movieCd;
+  },
   getOneMovieCdFromRequest(apiResult, index) {
-    console.log(index);
     return apiResult.movieList[index].movieCd;
   },
   getOneActorCdFromActorRequest(apiResult) {
