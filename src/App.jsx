@@ -1,12 +1,13 @@
 import React from 'react';
 
-import { Header } from './components/index';
-import { ApplicationContainer } from './containers/index';
+// import { Header } from './components/index';
+import { ApplicationContainer } from './chart_containers/index';
+// import { ApplicationContainer } from './containers/index';
 
 function App() {
   return (
     <div className="App">
-      <Header />
+      {/* <Header /> */}
       <ApplicationContainer />
     </div>
   );
