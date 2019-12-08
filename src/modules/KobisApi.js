@@ -27,6 +27,12 @@ export default {
     );
     return result.data.peopleListResult.peopleList;
   },
+  async getActorDetailFromCd(actorCd) {
+    const result = await Axios(
+      `http://www.kobis.or.kr/kobisopenapi/webservice/rest/people/searchPeopleInfo.json?key=${config.apiKey}&movieCd=${actorCd}`,
+    );
+    return result.data;
+  },
   getTotalCount(apiResult) {
     return apiResult.totCnt;
   },

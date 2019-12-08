@@ -3,41 +3,50 @@ import _ from 'lodash';
 
 import KobisApi from '../../modules/KobisApi';
 // eslint-disable-next-line import/no-cycle
+// import ProcessDetailResults from './ProcessDetailResults';
+// eslint-disable-next-line import/no-cycle
 import { DetailVisualizationGraph } from '../index';
 
 function reducer(state, action) {
   switch (action.key) {
     case 'movieNm':
       state.nodes.push({
-        id: action.value,
+        id: action.name,
+        // id: `${action.name}(${action.value})`,
         color: 'red',
         size: 1000,
       });
       state.links.push({
-        source: action.value,
+        source: action.name,
+        // source: `${action.name}(${action.value})`,
         target: '장르',
       });
       state.links.push({
-        source: action.value,
+        source: action.name,
+        // source: `${action.name}(${action.value})`,
         target: '개봉일',
       });
       state.links.push({
-        source: action.value,
+        source: action.name,
+        // source: `${action.name}(${action.value})`,
         target: '감독',
       });
       state.links.push({
-        source: action.value,
+        source: action.name,
+        // source: `${action.name}(${action.value})`,
         target: '배우',
       });
       state.links.push({
-        source: action.value,
+        source: action.name,
+        // source: `${action.name}(${action.value})`,
         target: '회사',
       });
       break;
     case 'openDt':
       state.nodes.push({
         id: action.value,
-        color: 'yellow',
+        size: 500,
+        color: '#fff3af',
       });
       state.links.push({
         source: '개봉일',
@@ -48,7 +57,8 @@ function reducer(state, action) {
       Object.values(action.value).forEach((item) => {
         state.nodes.push({
           id: item.genreNm,
-          color: 'blue',
+          size: 500,
+          color: '#f67280',
         });
         state.links.push({
           source: '장르',
@@ -57,36 +67,26 @@ function reducer(state, action) {
       });
       break;
     case 'actors':
-      const abc = _.slice(Object.values(action.value)
-        .map((item) => (item.peopleNm)), 0, 3);
-
-      abc.forEach((item) => {
+      for (let i = 0; i < 3; i += 1) {
         state.nodes.push({
-          id: item,
-          color: 'black',
+          // id: action.value[i].peopleNm,
+          id: `${action.value[i].peopleNm}(${action.value[i].peopleNmEn})`,
+          size: 500,
+          color: '#7e0cf5',
         });
         state.links.push({
           source: '배우',
-          target: item,
+          // target: action.value[i].peopleNm,
+          target: `${action.value[i].peopleNm}(${action.value[i].peopleNmEn})`,
         });
-      });
-
-      // Object.values(action.value).forEach((item) => {
-      // state.nodes.push({
-      //   id: item.peopleNm,
-      //   color: 'black',
-      // });
-      // state.links.push({
-      //   source: '배우',
-      //   target: item.peopleNm,
-      // });
-      // });
+      }
       break;
     case 'directors':
       Object.values(action.value).forEach((item) => {
         state.nodes.push({
           id: item.peopleNm,
-          color: 'green',
+          size: 500,
+          color: '#2c7873',
         });
         state.links.push({
           source: '감독',
@@ -98,7 +98,8 @@ function reducer(state, action) {
       Object.values(action.value).forEach((item) => {
         state.nodes.push({
           id: item.companyNm,
-          color: 'purple',
+          size: 500,
+          color: '#465881',
         });
         state.links.push({
           source: '회사',
@@ -108,6 +109,18 @@ function reducer(state, action) {
       break;
     default:
   }
+
+  if (_.isEqual(action.key, 'detail')) {
+    state.nodes.push({
+      id: action.target,
+      color: action.color,
+    });
+    state.links.push({
+      source: action.source,
+      target: action.target,
+    });
+  }
+
   return { ...state };
 }
 
@@ -116,59 +129,59 @@ const ProcessSearchResults = (props) => {
     nodes: [
       {
         id: '장르',
-        color: 'blue',
+        color: '#f8b195',
         size: 400,
       },
       {
         id: '개봉일',
-        color: 'yellow',
+        color: '#ffd271',
         size: 400,
       },
       {
         id: '감독',
-        color: 'green',
+        color: '#004445',
         size: 400,
       },
       {
         id: '배우',
-        color: 'black',
+        color: '#400082',
         size: 400,
       },
       {
         id: '회사',
-        color: 'purple',
+        color: '#1b2a49',
         size: 400,
       },
     ],
     links: [],
   });
 
-  const [graphData, setGraphData] = useState(
+  const [basicData, setBasicData] = useState(
     {
       nodes: [
         {
           id: '장르',
-          color: 'blue',
+          color: '#f8b195',
           size: 400,
         },
         {
           id: '개봉일',
-          color: 'blue',
+          color: '#ffd271',
           size: 400,
         },
         {
           id: '감독',
-          color: 'blue',
+          color: '#004445',
           size: 400,
         },
         {
           id: '배우',
-          color: 'blue',
+          color: '#400082',
           size: 400,
         },
         {
           id: '회사',
-          color: 'blue',
+          color: '#1b2a49',
           size: 400,
         },
       ],
@@ -181,16 +194,47 @@ const ProcessSearchResults = (props) => {
   const fetchSearchResult = async (searchValue) => {
     const result = await KobisApi.getAllDataFromMovieName(searchValue);
     // 검색 결과가 있는 경우
+    let movieName = null;
     if (KobisApi.isHaveResultValuesFromRequest(result)) {
       const resultMovieCd = KobisApi.getFirstMovieCdFromRequest(result);
 
       const detailResult = await KobisApi.getMovieDetailFromCd(resultMovieCd);
       Object.entries(detailResult).forEach((item) => {
-        console.log(item);
-        dispatch({ key: item[0], value: item[1] });
+        if (_.isEqual(item[0], 'movieNm')) {
+          // eslint-disable-next-line prefer-destructuring
+          movieName = item[1];
+        }
+        dispatch({ key: item[0], value: item[1], name: movieName });
       });
-      setGraphData(state);
     }
+
+    Object.values(state.links).forEach(async (linksInfo) => {
+      if (_.isEqual(linksInfo.source, '배우')) {
+        const tempActorWord = _.split(linksInfo.target, '(');
+        const actorEnName = _.split(tempActorWord[1], ')')[0];
+
+        const actorsResult = await KobisApi.getActorsFromActorName(actorEnName);
+        const actorFilmo = _.split(actorsResult[0].filmoNames, '|');
+
+        // Object.values(actorFilmo).forEach((movie) => {
+        //   dispatch({
+        //     key: 'detail', target: movie, source: linksInfo.target, color: '#cd4dcc',
+        //   });
+        // });
+
+        let count = 0;
+        for (let i = 0; i < actorFilmo.length; i += 1, count += 1) {
+          if (count > 5) break;
+          if (!_.isEqual(actorFilmo[i], movieName)) {
+            dispatch({
+              key: 'detail', target: actorFilmo[i], source: linksInfo.target, color: '#cd4dcc',
+            });
+          }
+        }
+      }
+    });
+
+    setBasicData(state);
   };
 
   useEffect(() => {
@@ -199,10 +243,9 @@ const ProcessSearchResults = (props) => {
     }
   }, [searchResult]);
 
-  // console.log(state);
   return (
     <DetailVisualizationGraph
-      graphData={graphData}
+      graphData={basicData}
     />
   );
 };
