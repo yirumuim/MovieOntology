@@ -10,7 +10,7 @@
     "contentful": "^7.10.0",
     "d3": "^5.14.2",
     "firebase": "^7.2.0",
-    "lodash": "^4.17.15",
+    "lodash": "^4.17.21",
     "material-ui": "^0.20.2",
     "material-ui-search-bar": "^0.4.2",
     "prop-types": "^15.7.2",
